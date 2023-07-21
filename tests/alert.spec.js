@@ -12,7 +12,7 @@ await page.getByRole('button', { name: 'Simple Alert' }).click();
 //     console.log(`Dialog message: ${dialog.message()}`);
 //     //dialog.dismiss().catch(() => {});
 //   });
-  await page.pause()
+ // await page.pause()
 
   await page.getByRole('button', { name: 'Confirm Alert' }).click();
   page.once('dialog', dialog => {
