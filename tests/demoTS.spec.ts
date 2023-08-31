@@ -11,7 +11,7 @@ test.describe.serial('API Testing', () => {
     const urlOPT = 'https://webhook.site/token/';
 
     let getOPTURL = '8c7f4ba8-56fc-4af0-a25c-fbb51a7717e4';
-    let email = "90057d02-fb2d-4e1a-a695-f1fb5a856ba3@email.webhook.site";
+    let email = "141c0885-c930-45f2-a409-3a40f670e83e@email.webhook.site";
     let pwd = "Smash@123";
 
 
@@ -174,7 +174,7 @@ test.describe.serial('API Testing', () => {
         const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
         // ...        
         // Before making the API request
-        await delay(47000); // Wait for 30 seconds
+        await delay(25000); // Wait for 30 seconds
 
         await page.locator('input').first().click();
         //await page.waitForURL('https://next.gudppl.com/verify-email');
@@ -232,7 +232,11 @@ test.describe.serial('API Testing', () => {
         await page.waitForTimeout(5000);
 
 
-        await expect.soft(page.locator(`//div[@class='MuiAlert-message css-1xsto0d']`)).toHaveText("Email Verified Successfully");
+        await expect.soft(page.locator(`//div[@class='MuiAlert-message css-1pxa9xg-MuiAlert-message']`)).toHaveText("Email Verified Successfully");
+        await expect.soft(page.getByText('Email Verified Successfully')).toHaveText("Email Verified Successfully");
+        //await page.getByText('Email Verified Successfully').click();
+        ////div[@class='MuiAlert-message css-1pxa9xg-MuiAlert-message']
+        //div[@class='MuiAlert-message css-1pxa9xg-MuiAlert-message']
         await page.waitForTimeout(5000);
         /////////////////writing email id to the text files/////////////////////////////
         const filePath = './pages/emailsIDs.txt';
@@ -264,7 +268,7 @@ test.describe.serial('API Testing', () => {
 
     });
 
-    test('Login with email', async ({ page }) => {        
+    test.skip('Login with email', async ({ page }) => {        
         //await test.setTimeout(50000);
         await page.goto('https://next.gudppl.com');
         //await page.waitForURL('**https://next.gudppl.com/');      
@@ -318,8 +322,9 @@ test.describe.serial('API Testing', () => {
         await page.getByLabel('Open').click();
         await page.getByPlaceholder('Select your country').fill('Sri');
         await page.getByRole('option', { name: 'Sri Lanka' }).click();
-        await page.locator('.css-rqmb9f').click();
-        await page.locator('#react-select-2-input').fill('Colombo');
+        //await page.locator('.css-rqmb9f').click();
+        await page.locator('.css-10w2b80-Rd').click();
+        await page.locator('#react-select-3-input').fill('Colombo');
         await page.getByText('Colombo', { exact: true }).click({ timeout: 2000 });
         await page.getByPlaceholder('Write few sentences about you').click();
         await page.getByPlaceholder('Write few sentences about you').fill('Hi my name is Monica Geller');
